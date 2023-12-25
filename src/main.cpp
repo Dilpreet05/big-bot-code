@@ -126,6 +126,7 @@ void opcontrol() {
 
   while (true) {
 
+    updateDirection();
     updateDrive();
     UpdatePistons();
     spinIntake();

@@ -36,7 +36,7 @@ Drive chassis (
 
 void updateDrive(){
 
-    if(updateDirection()){
+    if(isForward){
 
         chassis.tank();
 
@@ -49,10 +49,10 @@ void updateDrive(){
 
 bool updateDirection(){
 
-    if(master.get_digital(pros::E_CONTROLLER_DIGITAL_LEFT) != 1 && isForward){
-        isForward = true;
-    }else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_LEFT) == 1 && !isForward){
+    if(master.get_digital(pros::E_CONTROLLER_DIGITAL_LEFT) == 1 && isForward){
         isForward = false;
+    }else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_LEFT) == 1 && !isForward){
+        isForward = true;
     };
 
     return isForward;
