@@ -1,38 +1,7 @@
 #include "main.h"
 
-bool isReversed = false;
 
 // Chassis constructor
-Drive reversedChassis {
-  
-  {17,16,15} // left ports
-  
-  ,{-7,-6,-5} // right ports
-  
-  ,21 // imu
-  
-  ,3.5
-  
-  ,600
-  
-  ,1.666
-};
-
-Drive chassis (
-
-  {-17,-15, -16} // ports for left motors
-
-  ,{7,6, 5} // ports for right motors
-
-  ,21
-
-  ,3.5
-
-  ,600
-
-  ,1.666
-
-);
 
 
 
@@ -157,26 +126,10 @@ void opcontrol() {
 
   while (true) {
 
-    
-
-
-    // if(!isReversed){
-    //   chassis.tank(); // Standard tank 
-    //   if(master.get_digital(pros::E_CONTROLLER_DIGITAL_LEFT) == 1){
-    //     isReversed = true;
-    //   }
-    // }else{
-    //   reversedChassis.tank();
-    //   if(master.get_digital(pros::E_CONTROLLER_DIGITAL_LEFT) == 1){
-    //     isReversed = false;
-    //   }
-    // }
     updateDrive();
     UpdatePistons();
     spinIntake();
     spinFlywheel();
-
-
 
     pros::delay(ez::util::DELAY_TIME); // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }
