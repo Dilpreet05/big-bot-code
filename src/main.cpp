@@ -3,56 +3,35 @@
 bool isReversed = false;
 
 // Chassis constructor
-Drive reversedChassis{
+Drive reversedChassis {
+  
   {17,16,15} // left ports
+  
   ,{-7,-6,-5} // right ports
+  
   ,21 // imu
+  
   ,3.5
+  
   ,600
+  
   ,1.666
 };
 
 Drive chassis (
-  // Left Chassis Ports (negative port will reverse it!)
-  //   the first port is the sensored port (when trackers are not used!)
+
   {-17,-15, -16} // ports for left motors
 
-  // Right Chassis Ports (negative port will reverse it!)
-  //   the first port is the sensored port (when trackers are not used!)
   ,{7,6, 5} // ports for right motors
 
-  // IMU Port
   ,21
 
-  // Wheel Diameter (Remember, 4" wheels are actually 4.125!)
-  //    (or tracking wheel diameter)
   ,3.5
 
-  // Cartridge RPM
-  //   (or tick per rotation if using tracking wheels)
   ,600
 
-  // External Gear Ratio (MUST BE DECIMAL)
-  //    (or gear ratio of tracking wheel)
-  // eg. if your drive is 84:36 where the 36t is powered, your RATIO would be 2.333.
-  // eg. if your drive is 36:60 where the 60t is powered, your RATIO would be 0.6.
   ,1.666
 
-
-  // Uncomment if using tracking wheels
-  /*
-  // Left Tracking Wheel Ports (negative port will reverse it!)
-  // ,{1, 2} // 3 wire encoder
-  // ,8 // Rotation sensor
-
-  // Right Tracking Wheel Ports (negative port will reverse it!)
-  // ,{-3, -4} // 3 wire encoder
-  // ,-9 // Rotation sensor
-  */
-
-  // Uncomment if tracking wheels are plugged into a 3 wire expander
-  // 3 Wire Port Expander Smart Port
-  // ,1
 );
 
 
@@ -178,11 +157,7 @@ void opcontrol() {
 
   while (true) {
 
-    // if(master.get_digital(pros::E_CONTROLLER_DIGITAL_LEFT) == 1){
-
-    // }else{
-      
-    // }
+    
 
 
     // if(!isReversed){
@@ -196,7 +171,7 @@ void opcontrol() {
     //     isReversed = false;
     //   }
     // }
-    chassis.tank();
+    updateDrive();
     UpdatePistons();
     spinIntake();
     spinFlywheel();

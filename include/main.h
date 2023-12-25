@@ -48,6 +48,9 @@
 #include "SubsystemHeaders\flywheel.hpp"
 #include "SubsystemHeaders\intake.hpp"
 #include "SubsystemHeaders\piston.hpp"
+#include "SubsystemHeaders\drive.hpp"
+
+extern Drive reversedChassis;
 
 /**
  * If you find doing pros::Motor() to be tedious and you'd prefer just to do
