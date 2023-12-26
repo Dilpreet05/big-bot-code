@@ -129,6 +129,7 @@ void opcontrol() {
     updateDirection();
     updateDrive();
     UpdatePistons();
+    eBrake();
     spinIntake();
     spinFlywheel();
 
