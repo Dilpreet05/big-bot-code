@@ -22,6 +22,10 @@ void spinFlywheel(){
 }
 
 void eBrake(){
-        if(master.get_digital(pros::E_CONTROLLER_DIGITAL_Y) == 1)
-                brakeBool = true;
+        if(master.get_digital(pros::E_CONTROLLER_DIGITAL_Y) == 1){
+                // brakeBool = true;
+                contBool=false;
+                flywheel1 = 0;
+                flywheel2 = 0;
+        }
 }
