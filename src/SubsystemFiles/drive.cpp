@@ -4,9 +4,9 @@ bool isForward = true;
 
 Drive reversedChassis {
   
-  {13,12,11} // left ports
+  {-20,-19,-18} // left ports
   
-  ,{-20,-19,-18} // right ports
+  ,{13,12,11} // right ports
   
   ,15 // imu
   
@@ -49,11 +49,12 @@ void updateDrive(){
 
 bool updateDirection(){
 
-    if(master.get_digital(pros::E_CONTROLLER_DIGITAL_LEFT) == 1 && isForward){
-        isForward = false;
-    }else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_LEFT) == 1 && !isForward){
-        isForward = true;
-    };
+    if(master.get_digital(pros::E_CONTROLLER_DIGITAL_LEFT) == 1){
+        isForward = !isForward;
+    }
+    // else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_LEFT) == 1 && !isForward){
+    //     isForward = true;
+    // };
 
     return isForward;
 }
