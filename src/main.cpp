@@ -36,7 +36,8 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.add_autons({
-    Auton("Win Point\n\nyay cool code", win_point),
+    Auton("skills", skills),
+    // Auton("Win Point\n\nyay cool code", win_point),
     Auton("Example Drive\n\nDrive forward and come back.", drive_example),
     Auton("drive\n\n", drive),
     // Auton("Example Turn\n\nTurn 3 times.", turn_example),
@@ -123,10 +124,12 @@ void autonomous() {
 void opcontrol() {
   // This is preference to what you like to drive on.
   chassis.set_drive_brake(MOTOR_BRAKE_BRAKE);
+  pros::lcd::clear();
+  
 
   while (true) {
-
-    updateDirection();
+    // pros::lcd::set_text(4,to_string(updateDirection()));
+    // updateDirection();
     updateDrive();
     UpdatePistons();
     eBrake();

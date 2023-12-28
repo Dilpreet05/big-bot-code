@@ -16,6 +16,7 @@ void interfered_example();
 void default_constants();
 void drive();
 void win_point();
+void skills();
 
 // // my functions //
 // void moveForward(int d);

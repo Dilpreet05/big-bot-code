@@ -228,9 +228,9 @@ void drive(){
 // Make your own autonomous functions here!
 // . . .
 
-void win_point(){
+void skills(){
 
-  
+chassis.set_drive_pid(10,DRIVE_SPEED,false);  
 
 
 }
