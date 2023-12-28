@@ -1,6 +1,6 @@
 #include "main.h"
 
-pros::Motor intake(20,MOTOR_GEARSET_06,false);
+pros::Motor intake(2,MOTOR_GEARSET_06,false);
 
 void setIntakeBrakes(){
         intake.set_brake_mode(MOTOR_BRAKE_COAST);

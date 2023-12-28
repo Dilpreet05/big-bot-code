@@ -4,11 +4,11 @@ bool isForward = true;
 
 Drive reversedChassis {
   
-  {17,16,15} // left ports
+  {13,12,11} // left ports
   
-  ,{-7,-6,-5} // right ports
+  ,{-20,-19,-18} // right ports
   
-  ,21 // imu
+  ,15 // imu
   
   ,3.5
   
@@ -19,11 +19,11 @@ Drive reversedChassis {
 
 Drive chassis (
 
-  {-17,-15, -16} // ports for left motors
+  {-13,-12, -11} // ports for left motors
 
-  ,{7,6, 5} // ports for right motors
+  ,{20,19, 18} // ports for right motors
 
-  ,21
+  ,15
 
   ,3.5
 
