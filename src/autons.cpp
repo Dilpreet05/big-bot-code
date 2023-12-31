@@ -247,28 +247,34 @@ void cycle(){ // grab from corner and shoot cycle
 
   grabberDown();
   pros::delay(250);
-  chassis.set_drive_pid(-20,DRIVE_SPEED/2,true);
+  chassis.set_drive_pid(-22,30,true);
   chassis.wait_drive();
 
-  chassis.set_turn_pid(45,TURN_SPEED);
+  chassis.set_turn_pid(45,TURN_SPEED/2);
+  chassis.wait_drive();
+
+  chassis.set_drive_pid(-10,DRIVE_SPEED);
   chassis.wait_drive();
 
   grabberUp();
-  spinIntake();
-  pros::delay(500);
+  intakeSpin();
+  pros::delay(100);
 
   chassis.set_drive_pid(15,DRIVE_SPEED,true);
   chassis.wait_drive();
 
-  stopIntake();
   chassis.set_drive_pid(-15,DRIVE_SPEED,true);
   chassis.wait_drive();
 
-  chassis.set_turn_pid(-22.5,TURN_SPEED);
+  chassis.set_drive_pid(10,DRIVE_SPEED);
+
+  chassis.set_turn_pid(-3.5,TURN_SPEED);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(20,DRIVE_SPEED,true);
+  chassis.set_drive_pid(25,DRIVE_SPEED,true);
   chassis.wait_drive();
+  stopIntake();
+
 
 
 
@@ -287,15 +293,15 @@ void stopFW(){
 }
 
 void intakeSpin(){
-  intake = 127;
+  intakeMotor = 127;
 }
 
 void outtake(){
-  intake = -127;
+  intakeMotor = -127;
 }
 
 void stopIntake(){
-  intake = 0;
+  intakeMotor = 0;
 }
 
 void grabberDown(){
