@@ -36,25 +36,19 @@ Drive reversedChassis (
 
 void updateDrive(){
     
-    if(isForward){
-        // reversedChassis
-        chassis.tank();
-
-    }else {
-        reversedChassis.tank();
-    }
+    chassis.tank();
     pros::delay(20);
 
 }
 
 
-bool updateDirection(){
+// bool updateDirection(){
 
-    if(master.get_digital(pros::E_CONTROLLER_DIGITAL_LEFT) == 1){
-        isForward = !isForward;
-    }
+//     if(master.get_digital(pros::E_CONTROLLER_DIGITAL_LEFT) == 1){
+//         isForward = !isForward;
+//     }
 
-    pros::delay(20);
+//     pros::delay(20);
 
-    return isForward;
-}
+//     return isForward;
+// }

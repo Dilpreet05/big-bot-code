@@ -219,9 +219,7 @@ void interfered_example() {
  chassis.wait_drive();
 }
 
-void drive(){
-  chassis.set_drive_pid(12,DRIVE_SPEED,false);
-}
+
 
 
 // . . .
@@ -234,3 +232,80 @@ chassis.set_drive_pid(10,DRIVE_SPEED,false);
 
 
 }
+
+void match(){
+  spinFW();
+  pros::delay(1000);
+  cycle();
+
+  
+
+}
+
+
+void cycle(){ // grab from corner and shoot cycle 
+
+  grabberDown();
+  pros::delay(250);
+  chassis.set_drive_pid(-20,DRIVE_SPEED/2,true);
+  chassis.wait_drive();
+
+  chassis.set_turn_pid(45,TURN_SPEED);
+  chassis.wait_drive();
+
+  grabberUp();
+  spinIntake();
+  pros::delay(500);
+
+  chassis.set_drive_pid(15,DRIVE_SPEED,true);
+  chassis.wait_drive();
+
+  stopIntake();
+  chassis.set_drive_pid(-15,DRIVE_SPEED,true);
+  chassis.wait_drive();
+
+  chassis.set_turn_pid(-22.5,TURN_SPEED);
+  chassis.wait_drive();
+
+  chassis.set_drive_pid(20,DRIVE_SPEED,true);
+  chassis.wait_drive();
+
+
+
+}
+
+
+
+void spinFW(){
+  flywheel1 = 127;
+  flywheel2 = -127;
+}
+
+void stopFW(){
+  flywheel1 = 0;
+  flywheel2 = 0;
+}
+
+void intakeSpin(){
+  intake = 127;
+}
+
+void outtake(){
+  intake = -127;
+}
+
+void stopIntake(){
+  intake = 0;
+}
+
+void grabberDown(){
+  GrabberPiston1.set_value(true);  // Deploy the piston
+  GrabberPiston2.set_value(true);
+}
+
+void grabberUp(){
+  GrabberPiston1.set_value(false);  // Deploy the piston
+  GrabberPiston2.set_value(false);
+}
+
+

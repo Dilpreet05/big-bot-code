@@ -14,9 +14,19 @@ void swing_example();
 void combining_movements();
 void interfered_example();
 void default_constants();
-void drive();
-void win_point();
+
 void skills();
+void match();
+
+void spinFW();
+void stopFW();
+void intakeSpin();
+void outtake();
+void stopIntake();
+void grabberDown();
+void grabberUp();
+
+void cycle();
 
 // // my functions //
 // void moveForward(int d);
