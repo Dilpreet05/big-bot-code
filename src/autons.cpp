@@ -236,6 +236,9 @@ chassis.set_drive_pid(10,DRIVE_SPEED,false);
 void match(){
   spinFW();
   pros::delay(1000);
+  chassis.set_drive_pid(7,DRIVE_SPEED);
+  chassis.set_swing_pid(ez::LEFT_SWING,5,TURN_SPEED);
+
   cycle();
 
   
