@@ -17,8 +17,6 @@ void default_constants();
 
 void skills();
 void match();
-void winPoint();
-void touchHang();
 
 void spinFW();
 void stopFW();
@@ -29,6 +27,9 @@ void grabberDown();
 void grabberUp();
 
 void cycle();
+void skillsCycle();
+void winPoint();
+void touchHang();
 
 // // my functions //
 // void moveForward(int d);

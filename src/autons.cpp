@@ -47,8 +47,27 @@ void modified_exit_condition() {
 // . . .
 
 void skills(){
+  spinFW();
 
-chassis.set_drive_pid(10,DRIVE_SPEED,false);  
+  for(int k = 0; k < 40; k++){
+  skillsCycle();
+  }
+
+}
+
+void skillsCycle(){
+
+  grabberDown();
+  pros::delay(250);
+  chassis.set_drive_pid(-18,DRIVE_SPEED,true);
+  chassis.wait_drive();
+  grabberUp();
+  pros::delay(100);
+  intakeSpin();
+  pros::delay(100);
+  chassis.set_drive_pid(18,DRIVE_SPEED,true);
+  chass.wait_drive();
+  stopIntake();
 
 
 }
