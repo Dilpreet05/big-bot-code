@@ -17,6 +17,8 @@ void default_constants();
 
 void skills();
 void match();
+void winPoint();
+void touchHang();
 
 void spinFW();
 void stopFW();
