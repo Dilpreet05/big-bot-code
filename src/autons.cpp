@@ -84,6 +84,8 @@ void touchHang(){
   chassis.wait_drive();
 
   grabberDown();
+  stopFW();
+  
 
 }
 
@@ -208,7 +210,7 @@ void cycle(){ // grab from corner and shoot cycle
   // chassis.set_turn_pid(-45,TURN_SPEED);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(28,DRIVE_SPEED,true);
+  chassis.set_drive_pid(30,DRIVE_SPEED,true);
   chassis.wait_drive();
 
 
