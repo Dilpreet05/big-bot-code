@@ -58,15 +58,15 @@ void skills(){
 void skillsCycle(){
 
   grabberDown();
-  pros::delay(250);
-  chassis.set_drive_pid(-18,DRIVE_SPEED,true);
+  pros::delay(500);
+  chassis.set_drive_pid(-30,60,true);
   chassis.wait_drive();
   grabberUp();
   pros::delay(100);
   intakeSpin();
   pros::delay(100);
-  chassis.set_drive_pid(18,DRIVE_SPEED,true);
-  chass.wait_drive();
+  chassis.set_drive_pid(30,DRIVE_SPEED,true);
+  chassis.wait_drive();
   stopIntake();
 
 
