@@ -48,8 +48,9 @@ void modified_exit_condition() {
 
 void skills(){
   spinFW();
-  intakeMotor.set_voltage_limit(8);
-  intakeMotor.set_current_limit(2000);
+  // intakeMotor.set_voltage_limit(8);
+  // intakeMotor.set_current_limit(2000);
+  grabberDown();
 
   for(int k = 0; k < 20; k++){
     skillsCycle();
@@ -84,25 +85,24 @@ void skillsCycle(){
   // pros::delay(100);
   // chassis.set_drive_pid(27,DRIVE_SPEED,true);
   // chassis.wait_drive();
-
-  grabberDown();
-  pros::delay(500);
+  
+  //FIX GRABBER SO I CAN DO THIS 
+  pros::delay(1000);
 
   chassis.set_drive_pid(-12,DRIVE_SPEED,false);
   chassis.wait_drive();
   
-  grabberUp();
   
   chassis.set_drive_pid(12,DRIVE_SPEED,false);
   chassis.wait_drive();
   
-  chassis.set_drive_pid(-8,DRIVE_SPEED);
+  chassis.set_drive_pid(-12,127);
 
   intakeSpin();
   chassis.wait_drive();
   stopIntake();
   
-  chassis.set_drive_pid(8,DRIVE_SPEED);
+  chassis.set_drive_pid(12,DRIVE_SPEED);
   chassis.wait_drive();
 
 }
