@@ -48,11 +48,13 @@ void modified_exit_condition() {
 
 void skills(){
   spinFW();
-  intakeSpin();
+  intakeMotor.set_voltage_limit(8);
+  intakeMotor.set_current_limit(2000);
 
-  for(int k = 0; k < 34; k++){
+  for(int k = 0; k < 20; k++){
     skillsCycle();
   }
+
   endOfSkills();
 
 }
@@ -85,21 +87,23 @@ void skillsCycle(){
 
   grabberDown();
   pros::delay(500);
+
   chassis.set_drive_pid(-12,DRIVE_SPEED,false);
   chassis.wait_drive();
+  
   grabberUp();
+  
   chassis.set_drive_pid(12,DRIVE_SPEED,false);
   chassis.wait_drive();
+  
   chassis.set_drive_pid(-8,DRIVE_SPEED);
+
   intakeSpin();
   chassis.wait_drive();
   stopIntake();
+  
   chassis.set_drive_pid(8,DRIVE_SPEED);
   chassis.wait_drive();
-
-
-  
-
 
 }
 
