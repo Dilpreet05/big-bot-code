@@ -30,6 +30,7 @@ void cycle();
 void skillsCycle();
 void winPoint();
 void touchHang();
+void endOfSkills();
 
 // // my functions //
 // void moveForward(int d);

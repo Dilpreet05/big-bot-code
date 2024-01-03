@@ -48,37 +48,70 @@ void modified_exit_condition() {
 
 void skills(){
   spinFW();
+  intakeSpin();
 
-  for(int k = 0; k < 40; k++){
-  skillsCycle();
+  for(int k = 0; k < 34; k++){
+    skillsCycle();
   }
+  endOfSkills();
 
+}
+
+void endOfSkills(){
+  chassis.reset_pid_targets(); // Resets PID targets to 0
+  chassis.reset_gyro(); // Reset gyro position to 0
+  chassis.reset_drive_sensor(); // Reset drive sensors to 0
+
+  chassis.set_drive_pid(-27,DRIVE_SPEED,true);
+  chassis.wait_drive();
+
+  chassis.set_swing_pid(ez::LEFT_SWING,45,TURN_SPEED);
+  chassis.wait_drive();
+
+  chassis.set_drive_pid(-35,127,true);
 }
 
 void skillsCycle(){
 
+  // grabberDown();
+  // pros::delay(500);
+  // chassis.set_drive_pid(-27,60,true);
+  // chassis.wait_drive();
+
+  // grabberUp();
+  // pros::delay(100);
+  // chassis.set_drive_pid(27,DRIVE_SPEED,true);
+  // chassis.wait_drive();
+
   grabberDown();
   pros::delay(500);
-  chassis.set_drive_pid(-30,60,true);
+  chassis.set_drive_pid(-12,DRIVE_SPEED,false);
   chassis.wait_drive();
   grabberUp();
-  pros::delay(100);
+  chassis.set_drive_pid(12,DRIVE_SPEED,false);
+  chassis.wait_drive();
+  chassis.set_drive_pid(-8,DRIVE_SPEED);
   intakeSpin();
-  pros::delay(100);
-  chassis.set_drive_pid(30,DRIVE_SPEED,true);
   chassis.wait_drive();
   stopIntake();
+  chassis.set_drive_pid(8,DRIVE_SPEED);
+  chassis.wait_drive();
+
+
+  
 
 
 }
-// NEGATIVE TURN VALUES ARE DOUBLE, 180 = -90
-// NEGATIVE SWING VALUES ARE DIVIDED BY 10, 45
+
+
 void match(){
 
   winPoint();
-  cycle();
-  cycle();
-  cycle();
+
+  for(int k = 0; k < 7; k++){
+    cycle();
+  }
+
   touchHang();
 
   
@@ -99,7 +132,7 @@ void touchHang(){
   chassis.set_swing_pid(ez::LEFT_SWING, -90,TURN_SPEED);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(20,DRIVE_SPEED,true);
+  chassis.set_drive_pid(25,DRIVE_SPEED,true);
   chassis.wait_drive();
 
   grabberDown();
@@ -127,7 +160,7 @@ void winPoint(){
   grabberDown();
   pros::delay(250);
 
-  chassis.set_drive_pid(-60,60,true);
+  chassis.set_drive_pid(-62,60,true);
   chassis.wait_drive();
 
   chassis.set_swing_pid(ez::RIGHT_SWING, 45, TURN_SPEED);
