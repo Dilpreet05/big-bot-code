@@ -48,15 +48,34 @@ void modified_exit_condition() {
 
 void skills(){
   spinFW();
-  // intakeMotor.set_voltage_limit(8);
-  // intakeMotor.set_current_limit(2000);
+  // intakeSpin();
   grabberDown();
+
+  pros::delay(500);
+
+  chassis.set_drive_pid(-12,DRIVE_SPEED);
+  chassis.wait_drive();
+  
+
+  chassis.set_drive_pid(10,DRIVE_SPEED);
+  chassis.wait_drive();
+
+  intakeSpin();
+  pros::delay(150);
+  chassis.set_drive_pid(-5,127);
+  chassis.wait_drive();
+  stopIntake();
+  
+  chassis.set_drive_pid(5,DRIVE_SPEED);
+  chassis.wait_drive();
+
+  
 
   for(int k = 0; k < 20; k++){
     skillsCycle();
   }
 
-  endOfSkills();
+  // endOfSkills();
 
 }
 
@@ -72,37 +91,42 @@ void endOfSkills(){
   chassis.wait_drive();
 
   chassis.set_drive_pid(-35,127,true);
+  chassis.wait_drive();
+
+  chassis.set_turn_pid(90,TURN_SPEED);
+  chassis.wait_drive();
+
+  chassis.set_drive_pid(12,DRIVE_SPEED);
+  chassis.wait_drive();
+
+  chassis.set_turn_pid(-90,TURN_SPEED);
+  chassis.wait_drive();
+
+  chassis.set_drive_pid(-35,DRIVE_SPEED,true);
+  chassis.wait_drive();
+
+
+
 }
 
 void skillsCycle(){
 
-  // grabberDown();
-  // pros::delay(500);
-  // chassis.set_drive_pid(-27,60,true);
-  // chassis.wait_drive();
+  pros::delay(500);
 
-  // grabberUp();
-  // pros::delay(100);
-  // chassis.set_drive_pid(27,DRIVE_SPEED,true);
-  // chassis.wait_drive();
-  
-  //FIX GRABBER SO I CAN DO THIS 
-  pros::delay(1000);
-
-  chassis.set_drive_pid(-12,DRIVE_SPEED,false);
+  chassis.set_drive_pid(-8,DRIVE_SPEED);
   chassis.wait_drive();
   
-  
-  chassis.set_drive_pid(12,DRIVE_SPEED,false);
+
+  chassis.set_drive_pid(8,DRIVE_SPEED);
   chassis.wait_drive();
-  
-  chassis.set_drive_pid(-12,127);
 
   intakeSpin();
+  pros::delay(150);
+  chassis.set_drive_pid(-5,127);
   chassis.wait_drive();
   stopIntake();
   
-  chassis.set_drive_pid(12,DRIVE_SPEED);
+  chassis.set_drive_pid(5,DRIVE_SPEED);
   chassis.wait_drive();
 
 }
