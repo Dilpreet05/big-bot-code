@@ -4,7 +4,7 @@
 
 extern Drive chassis;
 // extern Drive reversedChassis;
-extern bool isReversed;
+extern bool isArcade;
 
 void drive_example();
 void turn_example();

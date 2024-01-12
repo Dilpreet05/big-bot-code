@@ -1,6 +1,6 @@
 #include "main.h"
 
-bool isForward = true;
+bool isArcade = false;
 
 Drive chassis {
   
@@ -17,38 +17,20 @@ Drive chassis {
   ,1.666
 };
 
-Drive reversedChassis (
 
-  {13,12, 11} // ports for left motors
-
-  ,{-20,-19, -18} // ports for right motors
-
-  ,15
-
-  ,3.5
-
-  ,600
-
-  ,1.666
-
-);
 
 
 void updateDrive(){
+
+    if(master.get_digital(pros::E_CONTROLLER_DIGITAL_LEFT) == 1){
+      isArcade = !isArcade;
+    }
     
-    chassis.tank();
+    if(!isArcade){
+      chassis.tank();
+    }else{
+      chassis.arcade_standard(ez::SPLIT);
+    }
     pros::delay(20);
 
 }
-
-
-// bool updateDirection(){
-
-//     if(master.get_digital(pros::E_CONTROLLER_DIGITAL_LEFT) == 1){
-//         isForward = !isForward;
-//     }
-
-//     pros::delay(20);
-
-//     return isForward;
-// }
