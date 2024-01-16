@@ -60,14 +60,14 @@ void skills(){
   chassis.set_drive_pid(10,DRIVE_SPEED);
   chassis.wait_drive();
 
-  intakeSpin();
+  // intakeSpin();
   pros::delay(150);
-  chassis.set_drive_pid(-5,127);
-  chassis.wait_drive();
-  stopIntake();
+  // chassis.set_drive_pid(-5,127);
+  // chassis.wait_drive();
+  // stopIntake();
   
-  chassis.set_drive_pid(5,DRIVE_SPEED);
-  chassis.wait_drive();
+  // chassis.set_drive_pid(5,DRIVE_SPEED);
+  // chassis.wait_drive();
 
   
 
@@ -120,14 +120,7 @@ void skillsCycle(){
   chassis.set_drive_pid(8,DRIVE_SPEED);
   chassis.wait_drive();
 
-  intakeSpin();
-  pros::delay(150);
-  chassis.set_drive_pid(-5,127);
-  chassis.wait_drive();
-  stopIntake();
-  
-  chassis.set_drive_pid(5,DRIVE_SPEED);
-  chassis.wait_drive();
+  pros::delay(250);
 
 }
 
@@ -136,7 +129,7 @@ void match(){
 
   winPoint();
 
-  for(int k = 0; k < 7; k++){
+  for(int k = 0; k < 3; k++){
     cycle();
   }
 

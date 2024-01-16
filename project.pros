@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "SKILLS + ARCADE SWITCH",
+    "project_name": "MATCH + ARCADE SWITCH",
     "target": "v5",
     "templates": {
       "EZ-Template": {
@@ -332,7 +332,7 @@
     },
     "upload_options": {
       "description": "Code for big Bot, Over Under VexU",
-      "slot": 3,
+      "slot": 1,
       "icon": "pizza",
       "after": "none"
     }

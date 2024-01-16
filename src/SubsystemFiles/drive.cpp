@@ -4,9 +4,9 @@ bool isArcade = false;
 
 Drive chassis {
   
-  {20,19,18} // left ports
-  
-  ,{-13,-12,-11} // right ports
+  {-20,-19,-18} // left ports
+
+  ,{13,12,11}
   
   ,15 // imu
   
@@ -31,6 +31,6 @@ void updateDrive(){
     }else{
       chassis.arcade_standard(ez::SPLIT);
     }
-    pros::delay(20);
+    pros::delay(50);
 
 }
