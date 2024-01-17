@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "SKILLS+ ARCADE SWITCH",
+    "project_name": "SKILLS + ARCADE SWITCH",
     "target": "v5",
     "templates": {
       "EZ-Template": {

@@ -214,7 +214,7 @@ void winPoint(){
   chassis.set_turn_pid(180,50);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(-20,127,true);
+  chassis.set_drive_pid(-18,127,true);
   chassis.wait_drive();
 
   chassis.set_drive_pid(18,DRIVE_SPEED,true);
