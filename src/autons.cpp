@@ -47,8 +47,12 @@ void modified_exit_condition() {
 // . . .
 
 void skills(){
+
+  startOfSkills();
+  reset();
+
   spinFW();
-  // intakeSpin();
+  intakeSpin();
   grabberDown();
 
   pros::delay(500);
@@ -60,18 +64,11 @@ void skills(){
   chassis.set_drive_pid(10,DRIVE_SPEED);
   chassis.wait_drive();
 
-  // intakeSpin();
   pros::delay(150);
-  // chassis.set_drive_pid(-5,127);
-  // chassis.wait_drive();
-  // stopIntake();
-  
-  // chassis.set_drive_pid(5,DRIVE_SPEED);
-  // chassis.wait_drive();
 
   
 
-  for(int k = 0; k < 20; k++){
+  for(int k = 0; k < 22; k++){
     skillsCycle();
   }
 
@@ -79,50 +76,64 @@ void skills(){
 
 }
 
-void endOfSkills(){
-  chassis.reset_pid_targets(); // Resets PID targets to 0
-  chassis.reset_gyro(); // Reset gyro position to 0
-  chassis.reset_drive_sensor(); // Reset drive sensors to 0
 
-  chassis.set_drive_pid(-27,DRIVE_SPEED,true);
-  chassis.wait_drive();
-
-  chassis.set_swing_pid(ez::LEFT_SWING,45,TURN_SPEED);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-35,127,true);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(90,TURN_SPEED);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(12,DRIVE_SPEED);
-  chassis.wait_drive();
-
-  chassis.set_turn_pid(-90,TURN_SPEED);
-  chassis.wait_drive();
-
-  chassis.set_drive_pid(-35,DRIVE_SPEED,true);
-  chassis.wait_drive();
-
-
-
-}
 
 void skillsCycle(){
 
   pros::delay(500);
 
-  chassis.set_drive_pid(-8,DRIVE_SPEED);
+  chassis.set_drive_pid(-10,DRIVE_SPEED);
   chassis.wait_drive();
   
 
-  chassis.set_drive_pid(8,DRIVE_SPEED);
+  chassis.set_drive_pid(10,DRIVE_SPEED);
   chassis.wait_drive();
 
   pros::delay(250);
 
+
 }
+
+void startOfSkills(){
+  chassis.set_drive_pid(-9,DRIVE_SPEED,true);
+  chassis.wait_drive();
+
+  chassis.set_drive_pid(20,DRIVE_SPEED,true);
+  chassis.wait_drive();
+
+  reset();
+  chassis.set_swing_pid(ez::LEFT_SWING,45,SWING_SPEED);
+  chassis.wait_drive();
+}
+
+// void endOfSkills(){
+
+//   chassis.reset_pid_targets(); // Resets PID targets to 0
+//   chassis.reset_gyro(); // Reset gyro position to 0
+//   chassis.reset_drive_sensor(); // Reset drive sensors to 0
+
+//   chassis.set_drive_pid(-27,DRIVE_SPEED,true);
+//   chassis.wait_drive();
+
+//   chassis.set_swing_pid(ez::LEFT_SWING,45,TURN_SPEED);
+//   chassis.wait_drive();
+
+//   chassis.set_drive_pid(-35,127,true);
+//   chassis.wait_drive();
+
+//   chassis.set_turn_pid(90,TURN_SPEED);
+//   chassis.wait_drive();
+
+//   chassis.set_drive_pid(12,DRIVE_SPEED);
+//   chassis.wait_drive();
+
+//   chassis.set_turn_pid(-90,TURN_SPEED);
+//   chassis.wait_drive();
+
+//   chassis.set_drive_pid(-35,DRIVE_SPEED,true);
+//   chassis.wait_drive();
+
+// }
 
 
 void match(){
@@ -143,9 +154,7 @@ void match(){
 
 void touchHang(){
 
-  chassis.reset_pid_targets(); // Resets PID targets to 0
-  chassis.reset_gyro(); // Reset gyro position to 0
-  chassis.reset_drive_sensor(); // Reset drive sensors to 0
+  reset();
 
   chassis.set_drive_pid(-35,DRIVE_SPEED,true);
   chassis.wait_drive();
@@ -174,9 +183,7 @@ void winPoint(){
   chassis.set_swing_pid(ez::RIGHT_SWING,-45,TURN_SPEED);
   chassis.wait_drive();
 
-  chassis.reset_pid_targets(); // Resets PID targets to 0
-  chassis.reset_gyro(); // Reset gyro position to 0
-  chassis.reset_drive_sensor(); // Reset drive sensors to 0
+  reset();
 
   grabberDown();
   pros::delay(250);
@@ -197,10 +204,7 @@ void winPoint(){
   chassis.set_drive_pid(35,DRIVE_SPEED,true);
   chassis.wait_drive();
 
-  chassis.reset_pid_targets(); // Resets PID targets to 0
-  chassis.reset_gyro(); // Reset gyro position to 0
-  chassis.reset_drive_sensor(); // Reset drive sensors to 0
-
+  reset();
 
   chassis.set_drive_pid(-15,DRIVE_SPEED,true);
   chassis.wait_drive();
@@ -216,9 +220,7 @@ void winPoint(){
   chassis.set_drive_pid(18,DRIVE_SPEED,true);
   chassis.wait_drive();
 
-  chassis.reset_pid_targets(); // Resets PID targets to 0
-  chassis.reset_gyro(); // Reset gyro position to 0
-  chassis.reset_drive_sensor(); // Reset drive sensors to 0
+  reset();
 
   chassis.set_turn_pid(180,50);
   chassis.wait_drive();
@@ -229,9 +231,7 @@ void winPoint(){
   // chassis.set_swing_pid(ez::LEFT_SWING, 45, 50);
   // chassis.wait_drive();
 
-  chassis.reset_pid_targets(); // Resets PID targets to 0
-  chassis.reset_gyro(); // Reset gyro position to 0
-  chassis.reset_drive_sensor(); // Reset drive sensors to 0
+  reset();
   
   chassis.set_swing_pid(ez::RIGHT_SWING, -53, TURN_SPEED);
   chassis.wait_drive();
@@ -243,9 +243,7 @@ void winPoint(){
 
 void cycle(){ // grab from corner and shoot cycle 
 
-  chassis.reset_pid_targets(); // Resets PID targets to 0
-  chassis.reset_gyro(); // Reset gyro position to 0
-  chassis.reset_drive_sensor(); // Reset drive sensors to 0
+  reset();
 
   grabberDown();
   pros::delay(500);
@@ -275,9 +273,7 @@ void cycle(){ // grab from corner and shoot cycle
   stopIntake();
 
 
-  chassis.reset_pid_targets(); // Resets PID targets to 0
-  chassis.reset_gyro(); // Reset gyro position to 0
-  chassis.reset_drive_sensor(); // Reset drive sensors to 0
+  reset();
 
   chassis.set_swing_pid(ez::LEFT_SWING,-45,TURN_SPEED);
   // chassis.set_turn_pid(-45,TURN_SPEED);
@@ -325,4 +321,9 @@ void grabberUp(){
   GrabberPiston2.set_value(false);
 }
 
+void reset(){
+  chassis.reset_pid_targets(); // Resets PID targets to 0
+  chassis.reset_gyro(); // Reset gyro position to 0
+  chassis.reset_drive_sensor(); // Reset drive sensors to 0
 
+}
