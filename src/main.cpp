@@ -124,11 +124,24 @@ void opcontrol() {
   // This is preference to what you like to drive on.
   chassis.set_drive_brake(MOTOR_BRAKE_BRAKE);
   pros::lcd::clear();
+  bool isCycling = false;
   
 
   while (true) {
-    // pros::lcd::set_text(4,to_string(updateDirection()));
-    // updateDirection();
+
+
+    // if(master.get_digital(pros::E_CONTROLLER_DIGITAL_A) == 1){
+    //   isCycling = !isCycling;
+    //   pros::delay(100);
+    // }
+
+    // if(isCycling){
+    //   spinIntake();
+    //   for(int k = 0; k < 22; k++){
+    //     skillsCycle();
+    //   }
+    // }
+
     updateDrive();
     UpdatePistons();
     eBrake();

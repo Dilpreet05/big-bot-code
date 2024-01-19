@@ -32,6 +32,7 @@ void winPoint();
 void touchHang();
 void endOfSkills();
 void startOfSkills();
+void autoLoad();
 void reset();
 
 // // my functions //

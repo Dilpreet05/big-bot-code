@@ -68,7 +68,7 @@ void skills(){
 
   
 
-  for(int k = 0; k < 22; k++){
+  for(int k = 0; k < 23; k++){
     skillsCycle();
   }
 
@@ -94,6 +94,21 @@ void skillsCycle(){
 
 }
 
+void autoLoad(){
+  pros::delay(500);
+  
+  reset();
+  chassis.set_drive_pid(-10,DRIVE_SPEED);
+  chassis.wait_drive();
+  
+  reset();
+  chassis.set_drive_pid(10,DRIVE_SPEED);
+  chassis.wait_drive();
+
+  pros::delay(250);
+
+}
+
 void startOfSkills(){
   chassis.set_drive_pid(-9,DRIVE_SPEED,true);
   chassis.wait_drive();
@@ -106,34 +121,31 @@ void startOfSkills(){
   chassis.wait_drive();
 }
 
-// void endOfSkills(){
+void endOfSkills(){
 
-//   chassis.reset_pid_targets(); // Resets PID targets to 0
-//   chassis.reset_gyro(); // Reset gyro position to 0
-//   chassis.reset_drive_sensor(); // Reset drive sensors to 0
+  reset();
+  chassis.set_drive_pid(-8,DRIVE_SPEED);
+  chassis.wait_drive();
 
-//   chassis.set_drive_pid(-27,DRIVE_SPEED,true);
-//   chassis.wait_drive();
+  grabberUp();
 
-//   chassis.set_swing_pid(ez::LEFT_SWING,45,TURN_SPEED);
-//   chassis.wait_drive();
+  reset();
+  chassis.set_turn_pid(90,TURN_SPEED);
+  chassis.wait_drive();
 
-//   chassis.set_drive_pid(-35,127,true);
-//   chassis.wait_drive();
+  chassis.set_drive_pid(11,DRIVE_SPEED);
+  chassis.wait_drive();
 
-//   chassis.set_turn_pid(90,TURN_SPEED);
-//   chassis.wait_drive();
+  chassis.set_turn_pid(45,TURN_SPEED);
+  chassis.wait_drive();
 
-//   chassis.set_drive_pid(12,DRIVE_SPEED);
-//   chassis.wait_drive();
+  chassis.set_drive_pid(40,DRIVE_SPEED,true);
+  chassis.wait_drive();
 
-//   chassis.set_turn_pid(-90,TURN_SPEED);
-//   chassis.wait_drive();
+  chassis.set_drive_pid(-10,DRIVE_SPEED);
 
-//   chassis.set_drive_pid(-35,DRIVE_SPEED,true);
-//   chassis.wait_drive();
 
-// }
+}
 
 
 void match(){
