@@ -2,21 +2,13 @@
 
 #include "EZ-Template/drive/drive.hpp"
 
-extern Drive chassis;
-// extern Drive reversedChassis;
 extern bool isArcade;
 
-void drive_example();
-void turn_example();
-void drive_and_turn();
-void wait_until_change_speed();
-void swing_example();
-void combining_movements();
-void interfered_example();
 void default_constants();
 
 void skills();
 void match();
+void matchNew();
 
 void spinFW();
 void stopFW();

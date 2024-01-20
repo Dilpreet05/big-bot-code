@@ -46,6 +46,15 @@ void modified_exit_condition() {
 // Make your own autonomous functions here!
 // . . .
 
+
+
+/* New Match Auton */
+void matchNew(){
+  
+}
+
+
+/* Skillls Auton */
 void skills(){
 
   startOfSkills();
