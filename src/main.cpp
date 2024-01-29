@@ -130,18 +130,6 @@ void opcontrol() {
   while (true) {
 
 
-    // if(master.get_digital(pros::E_CONTROLLER_DIGITAL_A) == 1){
-    //   isCycling = !isCycling;
-    //   pros::delay(100);
-    // }
-
-    // if(isCycling){
-    //   spinIntake();
-    //   for(int k = 0; k < 22; k++){
-    //     skillsCycle();
-    //   }
-    // }
-
     updateDrive();
     UpdatePistons();
     eBrake();
