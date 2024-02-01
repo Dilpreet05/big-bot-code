@@ -1,6 +1,7 @@
 #include "main.h"
 
 bool isArcade = false;
+bool isMotorAvailable = true;
 
 Drive chassis {
   
@@ -25,12 +26,14 @@ void updateDrive(){
     if(master.get_digital(pros::E_CONTROLLER_DIGITAL_LEFT) == 1){
       isArcade = !isArcade;
     }
-    
-    if(!isArcade){
-      chassis.tank();
-    }else{
-      chassis.arcade_standard(ez::SPLIT);
+    if( isMotorAvailable == true){
+        if(!isArcade){
+             chassis.tank();
+    }   else{
+             chassis.arcade_standard(ez::SPLIT);
     }
+    }
+    
     pros::delay(50);
 
 }
