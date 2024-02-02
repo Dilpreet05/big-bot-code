@@ -28,8 +28,10 @@ void updateDrive(){
     }
     if( isMotorAvailable == true){
         if(!isArcade){
+             chassis.set_tank(127,127);
              chassis.tank();
     }   else{
+             chassis.set_tank(127,127);
              chassis.arcade_standard(ez::SPLIT);
     }
     }
