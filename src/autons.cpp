@@ -126,7 +126,7 @@ void startOfSkills(){
   chassis.wait_drive();
 
   reset();
-  chassis.set_swing_pid(ez::LEFT_SWING,45,SWING_SPEED);
+  chassis.set_swing_pid(ez::RIGHT_SWING,45,SWING_SPEED);
   chassis.wait_drive();
 }
 

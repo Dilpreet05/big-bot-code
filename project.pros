@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "SKILLS",
+    "project_name": "SKILLS FLIPPED SPAWN",
     "target": "v5",
     "templates": {
       "EZ-Template": {
@@ -332,7 +332,7 @@
     },
     "upload_options": {
       "description": "Code for big Bot, Over Under VexU",
-      "slot": 2,
+      "slot": 3,
       "icon": "pizza",
       "after": "none"
     }
