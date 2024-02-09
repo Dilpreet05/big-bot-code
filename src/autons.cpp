@@ -61,7 +61,7 @@ void skills(){
   reset();
 
   spinFW();
-  intakeSpin();
+  intakeMotor = 127;
   grabberDown();
 
   pros::delay(500);
@@ -89,6 +89,8 @@ void skills(){
 
 void skillsCycle(){
 
+  
+  intakeMotor = 127;
   pros::delay(500);
 
   chassis.set_drive_pid(-10,DRIVE_SPEED);
@@ -222,7 +224,7 @@ void winPoint(){
 
 
 
-  chassis.set_drive_pid(35,DRIVE_SPEED,true);
+  chassis.set_drive_pid(30,DRIVE_SPEED,true);
   chassis.wait_drive();
 
   reset();
@@ -235,7 +237,7 @@ void winPoint(){
   chassis.set_turn_pid(180,50);
   chassis.wait_drive();
 
-  chassis.set_drive_pid(-18,127,true);
+  chassis.set_drive_pid(-20,127,true);
   chassis.wait_drive();
 
   chassis.set_drive_pid(18,DRIVE_SPEED,true);

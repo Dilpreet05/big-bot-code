@@ -31,7 +31,7 @@ void updateDrive(){
              chassis.set_tank(127,127);
              chassis.tank();
     }   else{
-             chassis.set_tank(127,127);
+             chassis.set_tank(40,40);
              chassis.arcade_standard(ez::SPLIT);
     }
     }
